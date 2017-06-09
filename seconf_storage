@@ -1,0 +1,11 @@
+## Second storage device hdd
+  file_to_disk = 'this.vdi'
+
+  config.vm.define "iscsitarget" do |iscsitarget|
+    iscsitarget.vm.provider "virtualbox" do |vb|
+      unless File.exist?(file_to_disk)
+        vb.customize ['createhd', '--filename', file_to_disk, '--variant', 'Fixed', '--size', 1 * 1024]
+      end
+      vb.customize ['storageattach', "VM TEST",  '--storagectl', 'SATAController', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', file_to_disk]
+    end
+  end
