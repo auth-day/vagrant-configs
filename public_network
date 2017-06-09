@@ -1,0 +1,2 @@
+## Publick network 
+config.vm.network :public_network
