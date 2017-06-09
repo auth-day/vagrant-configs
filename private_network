@@ -1,0 +1,3 @@
+## Set up private network 
+vm1.vm.network :private_network, 
+               :ip => 'IP_ADDRESS',
